@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Home';
+import HomeImage from './components/HomeImage';
+import MainContent from './components/MainContent';
+import UserForm from './components/UserForm';
+import LoginPage from './components/LoginPage';
+import { Routes, Route } from 'react-router-dom';
+import ClientManager from "./components/ClientManager";
+import PropertyManager from "./components/PropertyManager";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Routes>
+                <Route path="/" element={<><HomeImage /><MainContent /></>} />
+                <Route path="/usuario" element={<UserForm />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/clientes" element={<ClientManager />} />
+                <Route path="/imoveis" element={<PropertyManager />} />
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
